@@ -10,53 +10,123 @@ REGOLE
 /* ESERCIZIO 1
     Dato il seguente array, scrivi del codice per stampare ogni elemento dell'array in console.
 */
-const pets = ['dog', 'cat', 'hamster', 'redfish']
+const pets = ["dog", "cat", "hamster", "redfish"];
+
+const printPets = function (print) {
+  const result = [];
+  for (let i = 0; i < print.length; i++) {
+    result.push(pets[i]);
+  }
+  return result;
+};
+console.log(printPets(pets));
 
 /* ESERCIZIO 2
     Scrivi del codice per ordinare alfabeticamente gli elementi dell'array "pets".
 */
-
+const putInOrder = function (arr) {
+  return arr.sort();
+};
+console.log(putInOrder(pets));
 /* ESERCIZIO 3
     Scrivi del codice per stampare nuovamente in console gli elementi dell'array "pets", questa volta in ordine invertito.
 */
-
+const putReverse = function (arr) {
+  return arr.reverse();
+};
+console.log(putReverse(pets));
 /* ESERCIZIO 4
     Scrivi del codice per spostare il primo elemento dall'array "pets" in ultima posizione.
 */
-
+const changeFirstElement = function (newElement) {
+  pets[0] = newElement;
+  return pets;
+};
+console.log(changeFirstElement("bird"));
 /* ESERCIZIO 5
     Dato il seguente array di oggetti, scrivi del codice per aggiungere ad ognuno di essi una proprietà "licensePlate" con valore a tua scelta.
 */
 const cars = [
   {
-    brand: 'Ford',
-    model: 'Fiesta',
-    color: 'red',
-    trims: ['titanium', 'st', 'active'],
+    brand: "Ford",
+    model: "Fiesta",
+    color: "red",
+    trims: ["titanium", "st", "active"],
   },
   {
-    brand: 'Peugeot',
-    model: '208',
-    color: 'blue',
-    trims: ['allure', 'GT'],
+    brand: "Peugeot",
+    model: "208",
+    color: "blue",
+    trims: ["allure", "GT"],
   },
   {
-    brand: 'Volkswagen',
-    model: 'Polo',
-    color: 'black',
-    trims: ['life', 'style', 'r-line'],
+    brand: "Volkswagen",
+    model: "Polo",
+    color: "black",
+    trims: ["life", "style", "r-line"],
   },
-]
+];
+
+const myLicensePlates = ["AA123BB", "CC456DD", "EE789FF", "GG012HH", "JJ345KK"];
+
+const assignLicensePlatesToCars = function (carsArray) {
+  for (let i = 0; i < carsArray.length; i++) {
+    const car = carsArray[i];
+    const licensePlateForThisCar = myLicensePlates[i];
+    car.licensePlate = licensePlateForThisCar;
+  }
+  return carsArray;
+};
+
+console.log(assignLicensePlatesToCars(cars));
 
 /* ESERCIZIO 6
     Scrivi del codice per aggiungere un nuovo oggetto in ultima posizione nell'array "cars", rispettando la struttura degli altri elementi.
     Successivamente, rimuovi l'ultimo elemento della proprietà "trims" da ogni auto.
 */
+const newCar = {
+  brand: "Fiat",
+  model: "Tipo",
+  color: "grey",
+  trims: ["street", "cross", "sport"],
+};
 
+const addCar = function (carToAdd) {
+  cars.push(carToAdd);
+  for (let i = 0; i < cars.length; i++) {
+    const currentCar = cars[i];
+    if (
+      currentCar.trims &&
+      Array.isArray(currentCar.trims) &&
+      currentCar.trims.length > 0
+    ) {
+      currentCar.trims.pop();
+    }
+  }
+  return cars;
+};
+console.log(addCar(newCar));
 /* ESERCIZIO 7
     Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel nuovo array "justTrims", sotto definito.
 */
-const justTrims = []
+const justTrims = [];
+
+const getFirstElementsTrims = function (carsArray) {
+  const resultTrims = [];
+  for (let i = 0; i < carsArray.length; i++) {
+    const currentCar = carsArray[i];
+    if (
+      currentCar.trims &&
+      Array.isArray(currentCar.trims) &&
+      currentCar.trims.length > 0
+    ) {
+      const firstTrim = currentCar.trims[0];
+      resultTrims.push(firstTrim);
+    }
+  }
+  return resultTrims; //
+};
+console.log(getFirstElementsTrims(cars));
 
 /* ESERCIZIO 8
     Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi in console. Se la prima lettera della proprietà
@@ -68,11 +138,11 @@ const justTrims = []
 */
 const numericArray = [
   6, 90, 45, 75, 84, 98, 35, 74, 31, 2, 8, 23, 100, 32, 66, 313, 321, 105,
-]
+];
 
 /* ESERCIZIO 10
     Partendo dall'array fornito e utilizzando un costrutto switch, genera un nuovo array composto dalle posizioni di ogni carattere all'interno
     dell'alfabeto italiano.
     es. [f, b, e] --> [6, 2, 5]
 */
-const charactersArray = ['g', 'n', 'u', 'z', 'd']
+const charactersArray = ["g", "n", "u", "z", "d"];
