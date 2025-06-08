@@ -1,3 +1,4 @@
+/* Your styles here */
 /* Stili Generali */
 body {
     font-family: Arial, sans-serif;
@@ -67,7 +68,7 @@ main{
 }
 
 .image-bar{
-    background-image: url(./images/bg-image.png); 
+    background-image: url(../images/bg-image.png); 
     background-size: cover; 
         padding-top: 30px;
     padding-bottom: 30px;
@@ -185,4 +186,4 @@ footer a {
     width: 150px; /* Dimensione tipica del logo Amazon nel footer */
     padding-top: 50px;
     padding-bottom: 50px;
-}/* Your styles here */
+}
